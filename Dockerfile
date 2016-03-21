@@ -34,9 +34,4 @@ RUN chmod 600 /root/.ssh/*
 # Avoid first connection host confirmation
 RUN ssh-keyscan -p2200 gitlab.agfeo.de > /root/.ssh/known_hosts
 
-# Inject the OpenWRT code directory into the container
-WORKDIR /root/openwrt
-ADD openwrt /root/openwrt
-RUN cd /root/openwrt
-RUN git submodule init
-RUN git submodule update
+VOLUME ["/root/development"]
