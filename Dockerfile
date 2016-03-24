@@ -22,7 +22,7 @@ ENV LC_ALL de_DE.UTF-8
 RUN apt-get update
 
 # Install required packages
-RUN apt-get install -y gawk flex gettext subversion git intltool ccache build-essential libssl-dev python-yaml openssh-server mc
+RUN apt-get install -y gawk flex gettext subversion git intltool ccache build-essential libssl-dev python-yaml openssh-server mc ant libncurses5 libncurses5-dev
 
 # Fixes empty home
 ENV HOME /root
