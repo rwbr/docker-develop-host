@@ -22,16 +22,10 @@ ENV LC_ALL de_DE.UTF-8
 RUN apt-get update
 
 # Install required packages
-RUN apt-get install -y gawk flex gettext subversion git intltool ccache build-essential libssl-dev python-yaml
+RUN apt-get install -y gawk flex gettext subversion git intltool ccache build-essential libssl-dev python-yaml openssh-server mc
 
 # Fixes empty home
 ENV HOME /root
-# add custom ssh config / keys to the root user
-ADD .ssh/ /root/.ssh/
-# Fixes permission if needed
-RUN chmod 600 /root/.ssh/*
-
-# Avoid first connection host confirmation
-RUN ssh-keyscan -p2200 gitlab.agfeo.de > /root/.ssh/known_hosts
 
 VOLUME ["/root/development"]
+CMD ["/bin/bash"]

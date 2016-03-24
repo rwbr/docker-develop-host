@@ -1,0 +1,6 @@
+devbox:
+  build: .
+  ports:
+    - "2222:22"
+  volumes:
+    - /Users/ralfweinbrecher/development:/home/development
